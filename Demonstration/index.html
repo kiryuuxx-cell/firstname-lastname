@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron | Assistant Recruiter</title>
+  <meta name="description" content="Startup recruiter who sources technical candidates at volume using LinkedIn and Ashby. Based in the Philippines, available full-time." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent:      #4F6EF7;
+      --accent-dark: #3a56d4;
+      --bg:          #0d0d0d;
+      --bg-card:     #161616;
+      --bg-tag:      #1e1e1e;
+      --text-main:   #f0f0f0;
+      --text-muted:  #888888;
+      --border:      #242424;
+      --radius:      10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px; max-width: 860px; margin: 0 auto;
+    }
+    .nav-name { font-weight: 700; font-size: 15px; color: var(--text-main); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text-main); }
+
+    #hero { padding: 100px 0 80px; border-top: none; }
+    .hero-badge {
+      display: inline-block; background: var(--bg-tag);
+      border: 1px solid var(--border); border-radius: 100px;
+      padding: 5px 14px; font-size: 13px; color: var(--accent);
+      font-weight: 500; margin-bottom: 24px;
+    }
+    .hero-name {
+      font-size: clamp(38px, 7vw, 62px); font-weight: 700;
+      line-height: 1.1; letter-spacing: -1.5px;
+      margin-bottom: 16px; color: var(--text-main);
+    }
+    .hero-tagline {
+      font-size: clamp(16px, 2.5vw, 20px); color: var(--text-muted);
+      max-width: 540px; margin-bottom: 36px; line-height: 1.5;
+    }
+    .hero-cta {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-weight: 600; font-size: 15px; padding: 13px 28px;
+      border-radius: var(--radius); transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--accent-dark); color: #fff; transform: translateY(-1px); }
+    .hero-meta { margin-top: 48px; display: flex; gap: 32px; flex-wrap: wrap; }
+    .hero-stat { display: flex; flex-direction: column; }
+    .hero-stat-value { font-size: 26px; font-weight: 700; color: var(--text-main); letter-spacing: -0.5px; }
+    .hero-stat-label { font-size: 13px; color: var(--text-muted); }
+
+    #about .about-grid { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
+    .about-photo { width: 200px; height: 200px; border-radius: 12px; object-fit: cover; background: var(--bg-card); border: 1px solid var(--border); }
+    .about-photo-placeholder { width: 200px; height: 200px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-size: clamp(22px, 4vw, 30px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 20px; color: var(--text-main); }
+    .body-text { color: var(--text-muted); font-size: 15.5px; line-height: 1.75; }
+    .body-text p + p { margin-top: 14px; }
+
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .skill-tag { background: var(--bg-tag); border: 1px solid var(--border); border-radius: 6px; padding: 7px 16px; font-size: 14px; font-weight: 500; color: var(--text-main); transition: border-color 0.2s, color 0.2s; }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
+    .service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color 0.2s; }
+    .service-card:hover { border-color: var(--accent); }
+    .service-icon { font-size: 22px; margin-bottom: 12px; }
+    .service-name { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
+    .service-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+    #contact { text-align: center; }
+    .contact-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 56px 40px; max-width: 580px; margin: 32px auto 0; }
+    .contact-availability { display: inline-block; background: rgba(79,110,247,0.12); border: 1px solid rgba(79,110,247,0.3); border-radius: 100px; padding: 5px 14px; font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+    .contact-heading { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .contact-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 32px; }
+    .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .contact-btn { display: inline-block; padding: 11px 22px; border-radius: var(--radius); font-size: 14px; font-weight: 600; transition: all 0.2s; }
+    .contact-btn.primary { background: var(--accent); color: #fff; }
+    .contact-btn.primary:hover { background: var(--accent-dark); color: #fff; transform: translateY(-1px); }
+    .contact-btn.secondary { background: var(--bg-tag); color: var(--text-main); border: 1px solid var(--border); }
+    .contact-btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    footer { padding: 28px 24px; text-align: center; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
+
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+      #about .about-grid { grid-template-columns: 1fr; }
+      .about-photo, .about-photo-placeholder { width: 120px; height: 120px; }
+      .nav-links { display: none; }
+      .contact-box { padding: 36px 24px; }
+      .hero-meta { gap: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name">Aaron</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="container">
+      <div class="hero-badge">Assistant Recruiter</div>
+      <h1 class="hero-name">Hi, I'm Aaron.</h1>
+      <p class="hero-tagline">
+        Startup recruiter who sources technical candidates at volume using LinkedIn and Ashby.
+      </p>
+      <a href="mailto:aronsabaysabay@gmail.com" class="hero-cta">Work with me &rarr;</a>
+      <div class="hero-meta">
+        <div class="hero-stat">
+          <span class="hero-stat-value">1-2 yrs</span>
+          <span class="hero-stat-label">Experience</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">30-50</span>
+          <span class="hero-stat-label">Candidates sourced daily</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">UTC+8</span>
+          <span class="hero-stat-label">Timezone</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <img
+          src="photo.jpg"
+          alt="Aaron — Assistant Recruiter"
+          class="about-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="about-photo-placeholder" style="display:none;">Photo</div>
+
+        <div>
+          <div class="section-label">About me</div>
+          <h2 class="section-title">Sourcing 30 to 50 candidates per day for startup hiring teams.</h2>
+          <div class="body-text">
+            <p>
+              Over the past two years I built candidate pipelines for early-stage and growth-stage startups using LinkedIn Recruiter, Ashby, and Handshake. The companies I worked with needed to hire across multiple roles on short timelines, with hiring managers who had no time to review weak shortlists. Every candidate I send needs to be worth their time.
+            </p>
+            <p>
+              I take the role brief, map the candidate profile, build my search strings, and run them until I have a shortlist that fits. I track every stage in Ashby and stay in close contact with hiring managers through Slack. When a candidate moves forward, I follow through. When they do not, I adjust the search.
+            </p>
+            <p>
+              What separates me from most recruiters at this stage: I am a Licensed Mechanical Engineer. When a startup needs to fill technical roles, I read job descriptions at a different level. I know which requirements are non-negotiable and which are flexible, and I can evaluate a candidate's background without relying on the hiring manager to explain the technical details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">What I work with</div>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">LinkedIn Sourcing</span>
+        <span class="skill-tag">LinkedIn Recruiter</span>
+        <span class="skill-tag">Candidate Screening</span>
+        <span class="skill-tag">Ashby ATS</span>
+        <span class="skill-tag">Handshake</span>
+        <span class="skill-tag">Boolean Search</span>
+        <span class="skill-tag">High-Volume Recruiting</span>
+        <span class="skill-tag">Startup Hiring</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Technical Recruiting</span>
+        <span class="skill-tag">AutoCAD</span>
+        <span class="skill-tag">Slack</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-label">What I do</div>
+      <h2 class="section-title">Services</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <div class="service-name">LinkedIn Sourcing</div>
+          <p class="service-desc">High-volume sourcing via LinkedIn Recruiter — 30 to 50 qualified candidates per day depending on role complexity.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✅</div>
+          <div class="service-name">Candidate Screening and Shortlisting</div>
+          <p class="service-desc">I qualify candidates against the role brief before they reach the hiring manager. No noise, just a shortlist worth reviewing.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🗂️</div>
+          <div class="service-name">ATS Management (Ashby)</div>
+          <p class="service-desc">Full pipeline tracking in Ashby: stage updates, notes, and coordination with hiring managers through Slack.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <div class="service-name">Handshake Campus Recruiting</div>
+          <p class="service-desc">Sourcing early-career candidates and fresh graduates through Handshake for internship and entry-level roles.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <div class="service-name">Technical Role Sourcing</div>
+          <p class="service-desc">As a Licensed Mechanical Engineer, I source for engineering and operations roles with accuracy most recruiters cannot match.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔎</div>
+          <div class="service-name">Boolean Search String Development</div>
+          <p class="service-desc">Custom search strings built for each role to surface the right candidates faster on LinkedIn and other platforms.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Get in touch</div>
+      <h2 class="section-title">Let's work together</h2>
+      <div class="contact-box">
+        <div class="contact-availability">&#10022; Available for full-time roles</div>
+        <h3 class="contact-heading">Open to long-term recruiting contracts</h3>
+        <p class="contact-sub">
+          If your team needs consistent, high-volume sourcing from someone who can own top-of-funnel from day one, send me a message. I reply within 24 hours.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:aronsabaysabay@gmail.com" class="contact-btn primary">Send an email</a>
+          <a href="https://www.linkedin.com/in/" class="contact-btn secondary" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/" class="contact-btn secondary" target="_blank" rel="noopener">Upwork</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Aaron &middot; Assistant Recruiter &middot; Built with PortfolioPH
+  </footer>
+
+</body>
+</html>
